@@ -34,9 +34,6 @@ thisapp.azureServiceKey = "TWFjaGluZUxlYXJuaW5nVGV4dEFuYWx5dGljc1NlcnZpY2VTZW50a
 
     function getSearchResults(text) {
         if (text != "") {
-            //https://api.datamarket.azure.com/Bing/Search/v1/Web?Query=%27xbox%27
-            //CuErloyPpcm/l83OA+D/ALP0wRJLPRVx24ioEcIOx3s=
-
             var authorization = "Basic " + thisapp.azureServiceKey;
             var accept = "application/json";
             var apiUrl = "https://api.datamarket.azure.com/Bing/Search/v1/Web?Query=%27" + text +"%27";
@@ -57,11 +54,8 @@ thisapp.azureServiceKey = "TWFjaGluZUxlYXJuaW5nVGV4dEFuYWx5dGljc1NlcnZpY2VTZW50a
                     data.d.results.forEach(function(entry) {
                         var resultDiv = document.createElement("div");
                         resultDiv.innerHTML = "<a href=\"" + entry.Url + "\"><span>" + entry.Title + "</span></a><br><span>" + entry.Description + "</span><br><br><hr><br>";
-
                         resultsDiv.appendChild(resultDiv);
-
                     });
-
                 }
             });
         }
